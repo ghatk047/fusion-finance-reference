@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>General Arrangement — NCLH Fusion Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:wght@400&display=swap">
+<style>
+:root{--paper:#F4F2ED;--ink:#1C2226;--line:#2A3338;--accent:#0B6E5F;
+  --dim:#6B7681;--rule:#D9D5CC}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.switch{background:rgba(244,242,237,.86);border:1px solid var(--rule)}
+.switch a{color:var(--dim)}.switch a.on{background:var(--ink);color:var(--paper)}
+
+.sheet{max-width:1320px;margin:0 auto;padding:0 4vw 60px}
+.titleblk{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;
+  padding:54px 0 26px;border-bottom:2px solid var(--ink)}
+.eyebrow{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+h1{font-family:"Newsreader",Georgia,serif;font-weight:400;
+  font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.05;letter-spacing:-.02em;margin:0}
+.rev{text-align:right;font:400 10px "IBM Plex Mono",monospace;color:var(--dim);
+  letter-spacing:.1em;line-height:2}
+.rev b{color:var(--ink)}
+.lede{color:var(--dim);max-width:60ch;margin:22px 0 0;font-size:1rem;line-height:1.65}
+
+.ga{width:100%;height:auto;display:block;margin:26px 0 0}
+.ga .hull{fill:none;stroke:var(--line);stroke-width:1.6}
+.ga .deck{fill:#fff;stroke:var(--line);stroke-width:1.1}
+.ga .bhd{stroke:var(--rule);stroke-width:1}
+.ga .wl{stroke:var(--accent);stroke-width:1;stroke-dasharray:7 5;opacity:.6}
+.ga .wlh{stroke:var(--accent);stroke-width:.8;opacity:.28}
+.ga .keel{stroke:var(--line);stroke-width:1.6}
+.ga .frm{stroke:var(--line);stroke-width:.9;opacity:.55}
+.ga .lead{stroke:var(--accent);stroke-width:.9}
+.ga .dcode{fill:var(--accent);font:600 13px "IBM Plex Mono",monospace;letter-spacing:.1em}
+.ga .dname{fill:var(--ink);font:500 13px "IBM Plex Sans",sans-serif}
+.ga .dcnt{fill:var(--dim);text-anchor:end;font:600 12px "IBM Plex Mono",monospace}
+.ga .ann,.ga .frn,.ga .lbl{fill:var(--dim);font:400 9.5px "IBM Plex Mono",monospace;
+  letter-spacing:.08em}
+.ga .frn{text-anchor:middle}
+
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin:34px 0 0}
+.cta a{padding:13px 24px;text-decoration:none;font-size:.9rem;font-weight:600;border-radius:2px}
+.cta .go{background:var(--ink);color:var(--paper)}
+.cta .alt{border:1px solid var(--ink);color:var(--ink)}
+.cta a:hover{opacity:.85}
+
+.specs{margin-top:52px;border-top:1px solid var(--rule);border-left:1px solid var(--rule);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.specs a,.specs div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:20px 22px;text-decoration:none;display:block}
+.specs a:hover{background:#fff}
+.specs .k{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim)}
+.specs .v{font-family:"Newsreader",Georgia,serif;font-size:1.5rem;color:var(--ink);margin-top:5px;
+  font-variant-numeric:tabular-nums}
+.specs .s{font:400 11px "IBM Plex Mono",monospace;color:var(--accent);margin-top:4px}
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--rule);
+  color:var(--dim);font-size:.74rem;line-height:1.7;max-width:88ch}
+footer b{color:var(--ink)}
+@media(max-width:760px){
+  .titleblk{grid-template-columns:1fr}.rev{text-align:left}
+  .ga{margin-left:-4vw;margin-right:-4vw;width:calc(100% + 8vw)}
+}
+
+/* Bottom-right, not top: every concept puts something at the top edge —
+   an instrument bar, a sheet header, a log entry block — and a top-right
+   switcher covered it on D, F and G. */
+.switch{position:fixed;bottom:14px;right:14px;z-index:80;box-shadow:0 4px 18px rgba(0,0,0,.28);display:flex;align-items:center;
+  gap:2px;padding:5px 6px;border-radius:999px;font-size:12px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.switch span{padding:0 7px 0 4px;letter-spacing:.1em;text-transform:uppercase;
+  font-size:9.5px;opacity:.6}
+.switch a{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;
+  text-decoration:none;font-weight:600;font-size:11.5px}
+.switch a.cmp{width:auto;padding:0 10px;font-weight:500;opacity:.7}
+.switch a:hover{opacity:1}
+@media(max-width:720px){.switch{bottom:8px;right:8px;padding:4px}
+  .switch span{display:none}.switch a{width:21px;height:21px;font-size:10.5px}
+  .switch a.cmp{display:none}}
+</style>
+</head><body>
+<nav class="switch" aria-label="Concept"><span>Concept</span><a href="a.html" class="">A</a><a href="b.html" class="on">B</a><a href="c.html" class="">C</a><a href="d.html" class="">D</a><a href="e.html" class="">E</a><a href="f.html" class="">F</a><a href="g.html" class="">G</a><a href="index.html" class="cmp">compare</a></nav>
+
+<div class="sheet">
+  <div class="titleblk">
+    <div>
+      <p class="eyebrow">Oracle Fusion Cloud &middot; Finance</p>
+      <h1>The finance function,<br>drawn as a vessel.</h1>
+    </div>
+    <div class="rev">
+      SHEET 01 OF 01<br>
+      SCALE <b>L1&ndash;L4</b><br>
+      PROCESSES <b>98</b><br>
+      STATUS <b>HYPOTHESIS</b>
+    </div>
+  </div>
+
+  <p class="lede">Six decks, 14 compartments, 98 processes. Every space accounted
+  for &mdash; from the guest folio at sea to the consolidated result filed in New York.</p>
+
+  <svg viewBox="0 0 1330 520" class="ga" role="img" aria-label="Ship general arrangement drawing with decks labelled as finance domains">
+<path class="hull" d="M 70 312 C 90 382 104 404 148 430 L 1126 430 C 1166 430 1180 408 1180 312 Z"/>
+<line class="wl" x1="16" y1="388" x2="1314" y2="388"/>
+<line class="wlh" x1="16" y1="391" x2="27" y2="401"/>
+<line class="wlh" x1="38" y1="391" x2="49" y2="401"/>
+<line class="wlh" x1="60" y1="391" x2="71" y2="401"/>
+<line class="wlh" x1="82" y1="391" x2="93" y2="401"/>
+<line class="wlh" x1="104" y1="391" x2="115" y2="401"/>
+<line class="wlh" x1="126" y1="391" x2="137" y2="401"/>
+<line class="wlh" x1="148" y1="391" x2="159" y2="401"/>
+<line class="wlh" x1="170" y1="391" x2="181" y2="401"/>
+<line class="wlh" x1="192" y1="391" x2="203" y2="401"/>
+<line class="wlh" x1="214" y1="391" x2="225" y2="401"/>
+<line class="wlh" x1="236" y1="391" x2="247" y2="401"/>
+<line class="wlh" x1="258" y1="391" x2="269" y2="401"/>
+<line class="wlh" x1="280" y1="391" x2="291" y2="401"/>
+<line class="wlh" x1="302" y1="391" x2="313" y2="401"/>
+<line class="wlh" x1="324" y1="391" x2="335" y2="401"/>
+<line class="wlh" x1="346" y1="391" x2="357" y2="401"/>
+<line class="wlh" x1="368" y1="391" x2="379" y2="401"/>
+<line class="wlh" x1="390" y1="391" x2="401" y2="401"/>
+<line class="wlh" x1="412" y1="391" x2="423" y2="401"/>
+<line class="wlh" x1="434" y1="391" x2="445" y2="401"/>
+<line class="wlh" x1="456" y1="391" x2="467" y2="401"/>
+<line class="wlh" x1="478" y1="391" x2="489" y2="401"/>
+<line class="wlh" x1="500" y1="391" x2="511" y2="401"/>
+<line class="wlh" x1="522" y1="391" x2="533" y2="401"/>
+<line class="wlh" x1="544" y1="391" x2="555" y2="401"/>
+<line class="wlh" x1="566" y1="391" x2="577" y2="401"/>
+<line class="wlh" x1="588" y1="391" x2="599" y2="401"/>
+<line class="wlh" x1="610" y1="391" x2="621" y2="401"/>
+<line class="wlh" x1="632" y1="391" x2="643" y2="401"/>
+<line class="wlh" x1="654" y1="391" x2="665" y2="401"/>
+<line class="wlh" x1="676" y1="391" x2="687" y2="401"/>
+<line class="wlh" x1="698" y1="391" x2="709" y2="401"/>
+<line class="wlh" x1="720" y1="391" x2="731" y2="401"/>
+<line class="wlh" x1="742" y1="391" x2="753" y2="401"/>
+<line class="wlh" x1="764" y1="391" x2="775" y2="401"/>
+<line class="wlh" x1="786" y1="391" x2="797" y2="401"/>
+<line class="wlh" x1="808" y1="391" x2="819" y2="401"/>
+<line class="wlh" x1="830" y1="391" x2="841" y2="401"/>
+<line class="wlh" x1="852" y1="391" x2="863" y2="401"/>
+<line class="wlh" x1="874" y1="391" x2="885" y2="401"/>
+<line class="wlh" x1="896" y1="391" x2="907" y2="401"/>
+<line class="wlh" x1="918" y1="391" x2="929" y2="401"/>
+<line class="wlh" x1="940" y1="391" x2="951" y2="401"/>
+<line class="wlh" x1="962" y1="391" x2="973" y2="401"/>
+<line class="wlh" x1="984" y1="391" x2="995" y2="401"/>
+<line class="wlh" x1="1006" y1="391" x2="1017" y2="401"/>
+<line class="wlh" x1="1028" y1="391" x2="1039" y2="401"/>
+<line class="wlh" x1="1050" y1="391" x2="1061" y2="401"/>
+<line class="wlh" x1="1072" y1="391" x2="1083" y2="401"/>
+<line class="wlh" x1="1094" y1="391" x2="1105" y2="401"/>
+<line class="wlh" x1="1116" y1="391" x2="1127" y2="401"/>
+<line class="wlh" x1="1138" y1="391" x2="1149" y2="401"/>
+<line class="wlh" x1="1160" y1="391" x2="1171" y2="401"/>
+<line class="wlh" x1="1182" y1="391" x2="1193" y2="401"/>
+<line class="wlh" x1="1204" y1="391" x2="1215" y2="401"/>
+<line class="wlh" x1="1226" y1="391" x2="1237" y2="401"/>
+<line class="wlh" x1="1248" y1="391" x2="1259" y2="401"/>
+<line class="wlh" x1="1270" y1="391" x2="1281" y2="401"/>
+<line class="wlh" x1="1292" y1="391" x2="1303" y2="401"/>
+<rect class="deck" x="114" y="278.0" width="1038" height="34.0" rx="2"/>
+<line class="bhd" x1="373.5" y1="283.0" x2="373.5" y2="307.0"/>
+<line class="bhd" x1="633.0" y1="283.0" x2="633.0" y2="307.0"/>
+<line class="bhd" x1="892.5" y1="283.0" x2="892.5" y2="307.0"/>
+<text class="dcode" x="126" y="299.0">FIN</text>
+<text class="dname" x="166" y="299.0">Core Financials</text>
+<text class="dcnt" x="1140" y="299.0">34</text>
+<rect class="deck" x="162" y="240.0" width="975" height="34.0" rx="2"/>
+<line class="bhd" x1="649.5" y1="245.0" x2="649.5" y2="269.0"/>
+<text class="dcode" x="174" y="261.0">PRC</text>
+<text class="dname" x="214" y="261.0">Procurement &amp; Supply</text>
+<text class="dcnt" x="1125" y="261.0">16</text>
+<rect class="deck" x="210" y="202.0" width="912" height="34.0" rx="2"/>
+<line class="bhd" x1="666.0" y1="207.0" x2="666.0" y2="231.0"/>
+<text class="dcode" x="222" y="223.0">PPM</text>
+<text class="dname" x="262" y="223.0">Project &amp; Capital</text>
+<text class="dcnt" x="1110" y="223.0">12</text>
+<rect class="deck" x="258" y="164.0" width="849" height="34.0" rx="2"/>
+<line class="bhd" x1="682.5" y1="169.0" x2="682.5" y2="193.0"/>
+<text class="dcode" x="270" y="185.0">EPM</text>
+<text class="dname" x="310" y="185.0">Planning, Close &amp; Reporting</text>
+<text class="dcnt" x="1095" y="185.0">14</text>
+<rect class="deck" x="306" y="126.0" width="786" height="34.0" rx="2"/>
+<line class="bhd" x1="699.0" y1="131.0" x2="699.0" y2="155.0"/>
+<text class="dcode" x="318" y="147.0">GRC</text>
+<text class="dname" x="358" y="147.0">Risk, Controls &amp; Compliance</text>
+<text class="dcnt" x="1080" y="147.0">8</text>
+<line class="lead" x1="1098" y1="143.0" x2="1202" y2="143.0"/>
+<text class="ann" x="1208" y="147.0">64 steps</text>
+<rect class="deck" x="354" y="88.0" width="723" height="34.0" rx="2"/>
+<line class="bhd" x1="715.5" y1="93.0" x2="715.5" y2="117.0"/>
+<text class="dcode" x="366" y="109.0">XTN</text>
+<text class="dname" x="406" y="109.0">Integration, Data &amp; Sustaining</text>
+<text class="dcnt" x="1065" y="109.0">14</text>
+<line class="lead" x1="1083" y1="105.0" x2="1202" y2="105.0"/>
+<text class="ann" x="1208" y="109.0">116 steps</text>
+<path class="deck" d="M 927 88.0 l 0 -34 q 0 -12 12 -12 l 44 0 q 12 0 12 12 l 0 34 Z"/>
+<line class="bhd" x1="941" y1="48.0" x2="941" y2="84.0"/>
+<line class="keel" x1="148" y1="430" x2="1126" y2="430"/>
+<line class="frm" x1="148.0" y1="430" x2="148.0" y2="439"/>
+<text class="frn" x="148.0" y="454">0</text>
+<line class="frm" x1="196.9" y1="430" x2="196.9" y2="439"/>
+<line class="frm" x1="245.8" y1="430" x2="245.8" y2="439"/>
+<line class="frm" x1="294.7" y1="430" x2="294.7" y2="439"/>
+<line class="frm" x1="343.6" y1="430" x2="343.6" y2="439"/>
+<line class="frm" x1="392.5" y1="430" x2="392.5" y2="439"/>
+<text class="frn" x="392.5" y="454">50</text>
+<line class="frm" x1="441.4" y1="430" x2="441.4" y2="439"/>
+<line class="frm" x1="490.3" y1="430" x2="490.3" y2="439"/>
+<line class="frm" x1="539.2" y1="430" x2="539.2" y2="439"/>
+<line class="frm" x1="588.1" y1="430" x2="588.1" y2="439"/>
+<line class="frm" x1="637.0" y1="430" x2="637.0" y2="439"/>
+<text class="frn" x="637.0" y="454">100</text>
+<line class="frm" x1="685.9" y1="430" x2="685.9" y2="439"/>
+<line class="frm" x1="734.8" y1="430" x2="734.8" y2="439"/>
+<line class="frm" x1="783.7" y1="430" x2="783.7" y2="439"/>
+<line class="frm" x1="832.6" y1="430" x2="832.6" y2="439"/>
+<line class="frm" x1="881.5" y1="430" x2="881.5" y2="439"/>
+<text class="frn" x="881.5" y="454">150</text>
+<line class="frm" x1="930.4" y1="430" x2="930.4" y2="439"/>
+<line class="frm" x1="979.3" y1="430" x2="979.3" y2="439"/>
+<line class="frm" x1="1028.2" y1="430" x2="1028.2" y2="439"/>
+<line class="frm" x1="1077.1" y1="430" x2="1077.1" y2="439"/>
+<line class="frm" x1="1126.0" y1="430" x2="1126.0" y2="439"/>
+<text class="frn" x="1126.0" y="454">200</text>
+<text class="lbl" x="70" y="476">FR. 0</text>
+<text class="lbl" x="1084" y="476">GENERAL ARRANGEMENT &mdash; FINANCE</text>
+</svg>
+
+  <div class="cta">
+    <a class="go" href="../index.html">Open the process map</a>
+    <a class="alt" href="../decisions.html">26 design decisions</a>
+  </div>
+
+  <div class="specs">
+    <a href="../fin.html"><div class="k">Deck FIN</div><div class="v">34</div><div class="s">Core Financials</div></a><a href="../prc.html"><div class="k">Deck PRC</div><div class="v">16</div><div class="s">Procurement &amp; Supply</div></a><a href="../ppm.html"><div class="k">Deck PPM</div><div class="v">12</div><div class="s">Project &amp; Capital</div></a><a href="../epm.html"><div class="k">Deck EPM</div><div class="v">14</div><div class="s">Planning, Close &amp; Reporting</div></a><a href="../grc.html"><div class="k">Deck GRC</div><div class="v">8</div><div class="s">Risk, Controls &amp; Compliance</div></a><a href="../xtn.html"><div class="k">Deck XTN</div><div class="v">14</div><div class="s">Integration, Data &amp; Sustaining</div></a>
+    <div><div class="k">L4 steps</div><div class="v">815</div>
+      <div class="s">fully specified</div></div>
+    <div><div class="k">Beyond standard</div>
+      <div class="v">20</div>
+      <div class="s">extension or integration</div></div>
+  </div>
+
+  <footer><p><b>Independent reference model.</b> Design concept. Prepared for proposal purposes. Not affiliated with, endorsed by, or derived from confidential information of Norwegian Cruise Line Holdings Ltd. All content is hypothesis from public information. Oracle and Fusion are marks of Oracle Corporation.</p></footer>
+</div>
+
+</body></html>

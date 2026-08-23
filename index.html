@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>NCLH — General Arrangement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,380;9..144,460&family=Archivo+Narrow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F4F7F9;     /* cool drawing paper — NCL white */
+    --line:#0B1015;      /* NCL black linework           */
+    --teal:#0784BD;      /* NCL ocean blue — active deck + buttons only */
+    --note:#4F5F6B;      /* cool grey annotations        */
+    --serif:'Fraunces', Georgia, serif;
+    --narrow:'Archivo Narrow','Arial Narrow',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,'Courier New',monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:var(--paper)}
+  body{min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden;
+       -webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+  .stage{width:min(100vw,calc(100dvh*16/9));height:min(100dvh,calc(100vw*9/16));background:var(--paper)}
+  svg{display:block;width:100%;height:100%}
+
+  .serif{font-family:var(--serif);fill:var(--line)}
+  .narrow{font-family:var(--narrow)}
+  .mono{font-family:var(--mono)}
+  .cap{font-family:var(--narrow);text-transform:uppercase;letter-spacing:.24em;font-weight:500}
+  .btn{cursor:pointer}
+
+  /* every text on the ship is a link — make that legible without adding chrome */
+  svg a{cursor:pointer}
+  svg a text{transition:fill .12s ease}
+  svg a:hover text{fill:var(--teal)}
+  svg a:hover rect.hit{fill:rgba(7,132,189,.07)}
+  svg a:focus-visible{outline:none}
+  svg a:focus-visible rect.hit{fill:rgba(7,132,189,.14);stroke:var(--teal);stroke-width:1}
+  rect.hit{fill:transparent}
+
+  /* Mobile: the 16:9 stage letterboxes to a postage stamp on a phone, so the
+     drawing scrolls at a legible width and a tappable deck index sits below. */
+  .idx{display:none}
+  @media (max-width:900px){
+    body{display:block;overflow:auto}
+    .stage{width:100%;height:auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .stage svg{width:1180px;height:auto}
+    .idx{display:block;padding:20px 18px 44px;border-top:1px solid rgba(11,16,21,.18)}
+    .idx h2{font-family:var(--narrow);text-transform:uppercase;letter-spacing:.22em;
+      font-size:10px;color:var(--note);margin:0 0 12px;font-weight:600}
+    .idx a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+      padding:13px 2px;border-bottom:1px solid rgba(11,16,21,.14);text-decoration:none;color:var(--line)}
+    .idx .dk{font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:.12em}
+    .idx .nm{font-family:var(--serif);font-size:1.05rem;flex:1}
+    .idx .ct{font-family:var(--mono);font-size:10px;color:var(--note)}
+    .idx .go{display:inline-block;margin-top:18px;padding:12px 20px;background:var(--teal);
+      color:var(--paper);text-decoration:none;font-family:var(--narrow);text-transform:uppercase;
+      letter-spacing:.2em;font-size:11px;font-weight:600}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hull-draw{stroke-dasharray:4200;stroke-dashoffset:4200;animation:draw 2.4s cubic-bezier(.55,0,.2,1) .25s forwards}
+    .fade{opacity:0;animation:fade .9s ease .2s forwards}
+    .fade2{opacity:0;animation:fade .9s ease .9s forwards}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    @keyframes fade{to{opacity:1}}
+  }
+  footer{position:fixed;left:0;right:0;bottom:0;padding:6px 14px;font-family:var(--narrow);
+    font-size:9.5px;line-height:1.5;color:var(--note);background:rgba(244,247,249,.92);
+    border-top:1px solid rgba(11,16,21,.12)}
+  footer b{color:var(--line)}
+  @media (max-width:900px){footer{position:static;background:none}}
+</style>
+</head><body>
+
+<div class="stage">
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"
+     aria-label="General arrangement — longitudinal section whose six decks are the six domains of the NCLH Fusion finance model">
+  <defs>
+    <clipPath id="hullClip">
+      <path id="hullShape" d="M 150 550
+        L 136 616 Q 138 640 158 648 L 214 668
+        L 1368 668
+        Q 1452 662 1494 644
+        Q 1506 638 1500 628 Q 1494 618 1472 624
+        Q 1478 596 1496 560 Q 1508 540 1514 528
+        Q 1478 534 1430 540 L 1400 543 L 150 550 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1600" height="900" fill="var(--paper)"/>
+
+  <!-- ============ TOP THIRD: headline · paragraph · buttons ============ -->
+  <g class="fade">
+    <text class="cap" x="70" y="92" font-size="11" fill="var(--note)">NCLH · General Arrangement · Oracle Fusion Cloud Finance</text>
+
+    <text class="serif" x="66" y="158" font-size="56" font-weight="440" letter-spacing="-.5">Every deck of the business,</text>
+    <text class="serif" x="66" y="216" font-size="56" font-weight="440" letter-spacing="-.5">drawn to scale.</text>
+
+    <text class="narrow" x="70" y="252" font-size="15.5" fill="var(--note)">
+      <tspan x="70" dy="0">98 finance processes documented the way a yard documents a hull —</tspan>
+      <tspan x="70" dy="22">six decks, from procurement at the rail to consolidation in the keel,</tspan>
+      <tspan x="70" dy="22">every compartment labelled, positioned against delivered Fusion.</tspan>
+    </text>
+
+    <a href="overview.html">
+      <g class="btn">
+        <rect x="70" y="316" width="206" height="42" fill="var(--teal)"/>
+        <text class="cap" x="173" y="342" font-size="12" fill="var(--paper)" text-anchor="middle">View the drawing set</text>
+      </g>
+    </a>
+    <a href="decisions.html">
+      <g class="btn">
+        <rect x="292" y="316" width="196" height="42" fill="none" stroke="var(--line)" stroke-width="1.2"/>
+        <text class="cap" x="390" y="342" font-size="12" fill="var(--line)" text-anchor="middle">Design decisions</text>
+      </g>
+    </a>
+  </g>
+
+  <!-- ============ DRAWING FIELD (script populates) ============ -->
+  <g id="grid"></g>
+  <g id="hatch" clip-path="url(#hullClip)" stroke="var(--line)" opacity=".5"></g>
+  <g id="decks"></g>
+
+  <!-- hull profile -->
+  <g fill="none" stroke="var(--line)" stroke-width="1.4" stroke-linejoin="round">
+    <use href="#hullShape" class="hull-draw"/>
+  </g>
+
+  <!-- superstructure furniture: funnel · bridge · mast · pods -->
+  <g class="fade2" fill="none" stroke="var(--line)" stroke-width="1.1">
+    <path d="M 788 378 L 806 322 L 872 322 L 862 378"/>
+    <line x1="806" y1="334" x2="870" y2="334" stroke-width=".8"/>
+    <path d="M 1152 378 L 1158 344 L 1252 344 L 1262 378"/>
+    <g stroke-width=".8" opacity=".8">
+      <line x1="1172" y1="352" x2="1172" y2="366"/><line x1="1190" y1="352" x2="1190" y2="366"/>
+      <line x1="1208" y1="352" x2="1208" y2="366"/><line x1="1226" y1="352" x2="1226" y2="366"/>
+      <line x1="1244" y1="352" x2="1244" y2="366"/>
+    </g>
+    <line x1="1200" y1="344" x2="1200" y2="296"/>
+    <line x1="1186" y1="308" x2="1214" y2="308" stroke-width=".8"/>
+    <line x1="1192" y1="298" x2="1208" y2="298" stroke-width=".8"/>
+    <ellipse cx="252" cy="676" rx="20" ry="7"/>
+    <circle cx="236" cy="676" r="9" stroke-width=".9"/>
+    <line x1="236" y1="667" x2="236" y2="685" stroke-width=".8"/>
+  </g>
+
+  <text class="mono fade2" x="1486" y="612" font-size="8.5" fill="var(--note)" text-anchor="middle">BULB</text>
+
+  <!-- ============ MARGIN NOTES w/ leader lines (script populates) ============ -->
+  <g id="notes" class="fade2"></g>
+
+  <!-- ============ TITLE BLOCK, bottom right ============ -->
+  <g class="fade2">
+    <rect x="1272" y="694" width="288" height="84" fill="none" stroke="var(--line)" stroke-width="1"/>
+    <line x1="1272" y1="722" x2="1560" y2="722" stroke="var(--line)" stroke-width=".7"/>
+    <line x1="1272" y1="750" x2="1560" y2="750" stroke="var(--line)" stroke-width=".7"/>
+    <text class="cap"  x="1284" y="712" font-size="9.5" fill="var(--line)">NCLH — Fusion Finance Model</text>
+    <text class="cap"  x="1284" y="740" font-size="8.5" fill="var(--note)">General Arrangement · Longitudinal Section</text>
+    <text class="mono" x="1284" y="768" font-size="9"   fill="var(--note)">SCALE L1–L4&#160;&#160;DWG FIN-GA-01&#160;&#160;HYPOTHESIS</text>
+  </g>
+
+  <!-- ============ FOOTER STATISTICS ============ -->
+  <line x1="60" y1="806" x2="1540" y2="806" stroke="var(--line)" stroke-width="1" opacity=".35"/>
+  <g id="stats"></g>
+</svg>
+</div>
+
+<nav class="idx" id="idx"></nav>
+
+<footer><b>Independent reference model.</b> Prepared for proposal purposes. Not affiliated with,
+endorsed by, or derived from confidential information of Norwegian Cruise Line Holdings Ltd. All
+content is hypothesis from public information and does not represent NCLH's actual processes.
+Oracle, Fusion and PeopleSoft are marks of Oracle Corporation.</footer>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+const $=id=>document.getElementById(id);
+const el=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e};
+const txt=(a,s)=>{const t=el("text",a);t.textContent=s;return t};
+const link=(href,label)=>{const a=el("a",{href:href});a.setAttribute("aria-label",label);return a};
+
+const KEEL=668, WL=620;
+const decks = [{"n": "06", "y": 378, "h": 40, "aft": 430, "fwd": 1236, "elev": "+38.4 M", "code": "PRC", "name": "Procurement & Supply", "nproc": 16, "steps": 132, "href": "prc.html", "comps": [{"code": "PRC-SR", "label": "SOURCING", "n": 8}, {"code": "PRC-PP", "label": "PURCHASE TO RECEIPT", "n": 8}]}, {"n": "05", "y": 418, "h": 40, "aft": 392, "fwd": 1272, "elev": "+35.2 M", "code": "XTN", "name": "Integration, Data & Sustaining", "nproc": 14, "steps": 116, "href": "xtn.html", "comps": [{"code": "XTN-IN", "label": "INTEGRATION", "n": 7}, {"code": "XTN-DM", "label": "MIGRATION & SUSTAINING", "n": 7}]}, {"n": "04", "y": 458, "h": 40, "aft": 354, "fwd": 1306, "elev": "+32.0 M", "code": "FIN", "name": "Core Financials", "nproc": 34, "steps": 295, "href": "fin.html", "comps": [{"code": "FIN-GL", "label": "GENERAL LEDGER", "n": 9}, {"code": "FIN-AP", "label": "PAYABLES", "n": 8}, {"code": "FIN-AR", "label": "RECEIVABLES", "n": 9}, {"code": "FIN-AM", "label": "ASSETS & TAX", "n": 8}], "active": true}, {"n": "03", "y": 498, "h": 40, "aft": 316, "fwd": 1338, "elev": "+28.8 M", "code": "PPM", "name": "Project & Capital", "nproc": 12, "steps": 96, "href": "ppm.html", "comps": [{"code": "PPM-CP", "label": "CAPITAL PROJECTS", "n": 6}, {"code": "PPM-PC", "label": "PROJECT CONTROL", "n": 6}]}, {"n": "02", "y": 538, "h": 40, "aft": 278, "fwd": 1368, "elev": "+25.6 M", "code": "GRC", "name": "Risk, Controls & Compliance", "nproc": 8, "steps": 64, "href": "grc.html", "comps": [{"code": "GRC-AC", "label": "ACCESS & SOD", "n": 4}, {"code": "GRC-CC", "label": "CONTROLS & AUDIT", "n": 4}]}, {"n": "01", "y": 578, "h": 42, "aft": 236, "fwd": 1400, "elev": "+14.8 M", "hull": true, "code": "EPM", "name": "Planning, Close & Reporting", "nproc": 14, "steps": 112, "href": "epm.html", "comps": [{"code": "EPM-PC", "label": "CLOSE & CONSOLIDATION", "n": 7}, {"code": "EPM-PL", "label": "PLANNING & ANALYTICS", "n": 7}]}];
+const STATS = [["98", "Processes mapped"], ["815", "L4 steps specified"], ["6", "Decks / domains"], ["20", "Beyond standard Fusion"], ["26", "Design decisions"]];
+const NOTES = [{"key": "funnel", "cap": "Audit trail", "pid": "GRC-CC-03", "note": "evidence retained across Fusion and legacy"}, {"key": "bridge", "cap": "Bridge", "pid": "EPM-PL-07", "note": "one consolidated view, all six domains"}, {"key": "ballast", "cap": "Controls", "pid": "GRC-CC-01", "note": "SOX 404 \u00b7 documented and tested"}];
+
+/* ---------------- grid: page-wide deck rules · stations · baseline ---------------- */
+(function(){
+  const g=$("grid");
+  decks.forEach(d=>{
+    g.appendChild(el("line",{x1:40,y1:d.y,x2:1560,y2:d.y,stroke:"var(--line)","stroke-width":.6,opacity:.14}));
+  });
+  g.appendChild(el("line",{x1:40,y1:WL,x2:1560,y2:WL,stroke:"var(--line)","stroke-width":.9,
+    "stroke-dasharray":"14 5 2 5",opacity:.55}));
+  g.appendChild(txt({class:"mono",x:1556,y:WL-6,"font-size":9,fill:"var(--note)","text-anchor":"end"},"DWL +6.0 M"));
+  g.appendChild(el("line",{x1:40,y1:KEEL,x2:1560,y2:KEEL,stroke:"var(--line)","stroke-width":.9,opacity:.6}));
+  for(let x=150,f=0; x<=1510; x+=40,f+=10){
+    const major=f%50===0;
+    g.appendChild(el("line",{x1:x,y1:KEEL,x2:x,y2:KEEL+(major?9:5),stroke:"var(--line)","stroke-width":.7,opacity:.6}));
+    if(major) g.appendChild(txt({class:"mono",x:x,y:KEEL+22,"font-size":8.5,fill:"var(--note)","text-anchor":"middle"},"FR "+f));
+  }
+  for(let x=350;x<=1350;x+=200)
+    g.appendChild(el("line",{x1:x,y1:378,x2:x,y2:KEEL,stroke:"var(--line)","stroke-width":.6,opacity:.07}));
+})();
+
+/* ---------------- below-waterline hatching, clipped to the hull ---------------- */
+(function(){
+  const g=$("hatch");
+  for(let x=60;x<1580;x+=9)
+    g.appendChild(el("line",{x1:x,y1:KEEL+2,x2:x+50,y2:WL-2,"stroke-width":.55,opacity:.5}));
+})();
+
+/* ---------------- deck bands · compartments · margin labels ---------------- */
+(function(){
+  const g=$("decks");
+  decks.forEach((d,i)=>{
+    const grp=el("g",{class:"fade2"}); grp.style.animationDelay=(0.7+i*0.1)+"s";
+    const stroke = d.active ? "var(--teal)" : "var(--line)";
+    const noteFill = d.active ? "var(--teal)" : "var(--note)";
+
+    if(!d.hull){
+      grp.appendChild(el("path",{d:`M ${d.aft} ${d.y} L ${d.fwd} ${d.y} L ${d.fwd+10} ${d.y+d.h} L ${d.aft} ${d.y+d.h} Z`,
+        fill:d.active?"var(--teal)":"none","fill-opacity":d.active?".07":"0",
+        stroke:stroke,"stroke-width":d.active?1.4:1}));
+      grp.appendChild(el("line",{x1:d.aft+6,y1:d.y+7,x2:d.fwd+2,y2:d.y+7,stroke:stroke,"stroke-width":.55,opacity:.5}));
+    }else{
+      grp.appendChild(el("line",{x1:d.aft,y1:d.y,x2:d.fwd,y2:d.y,stroke:"var(--line)","stroke-width":.9,opacity:.8}));
+      for(let x=440;x<=1160;x+=80)
+        grp.appendChild(el("rect",{x:x,y:556,width:26,height:7,rx:3.5,fill:"none",stroke:"var(--line)","stroke-width":.8,opacity:.75}));
+    }
+
+    /* compartments — each one deep-links to its L2 group on the pillar page */
+    const x0 = d.hull? 330 : d.aft+8;
+    const x1 = d.hull? 1330 : d.fwd-6;
+    const yTop = d.hull? 590 : d.y+12;
+    const yBot = d.hull? 614 : d.y+d.h-4;
+    const step=(x1-x0)/d.comps.length;
+    d.comps.forEach((c,j)=>{
+      if(j>0) grp.appendChild(el("line",{x1:x0+step*j,y1:yTop,x2:x0+step*j,y2:yBot,
+        stroke:stroke,"stroke-width":.6,opacity:.45}));
+      const a=link(d.href+"#"+c.code, c.label+" — "+c.n+" processes");
+      a.appendChild(el("rect",{class:"hit",x:x0+step*j+1,y:yTop,width:step-2,height:yBot-yTop}));
+      a.appendChild(txt({class:"narrow",x:x0+step*(j+.5),y:(yTop+yBot)/2+1,"font-size":8.5,
+        fill:d.active?"var(--teal)":"var(--note)","text-anchor":"middle","letter-spacing":".08em"},c.label));
+      a.appendChild(txt({class:"mono",x:x0+step*(j+.5),y:(yTop+yBot)/2+12,"font-size":7.5,
+        fill:noteFill,"text-anchor":"middle",opacity:".8"},c.n+" PROC"));
+      grp.appendChild(a);
+    });
+
+    /* left-margin deck label — links to the pillar page */
+    const ly=d.hull? 600 : d.y+d.h/2;
+    if(d.active) grp.appendChild(el("rect",{x:44,y:ly-9,width:4,height:18,fill:"var(--teal)"}));
+    const la=link(d.href, d.name+" — "+d.nproc+" processes");
+    la.appendChild(el("rect",{class:"hit",x:44,y:ly-16,width:250,height:32}));
+    la.appendChild(txt({class:"mono",x:58,y:ly-2,"font-size":10,fill:d.active?"var(--teal)":"var(--line)","font-weight":500},"DK "+d.n));
+    la.appendChild(txt({class:"cap",x:58,y:ly+13,"font-size":9.5,fill:d.active?"var(--teal)":"var(--note)","letter-spacing":".18em"},d.name));
+    grp.appendChild(la);
+
+    /* right-margin numerics — also a link, so the whole band is clickable */
+    const ra=link(d.href, d.name+" — "+d.steps+" steps");
+    ra.appendChild(el("rect",{class:"hit",x:1400,y:ly-16,width:158,height:32}));
+    ra.appendChild(txt({class:"mono",x:1556,y:ly-2,"font-size":10,fill:d.active?"var(--teal)":"var(--line)","text-anchor":"end"},d.elev));
+    ra.appendChild(txt({class:"mono",x:1556,y:ly+12,"font-size":8.5,fill:noteFill,"text-anchor":"end",opacity:".85"},d.steps+" STEPS"));
+    grp.appendChild(ra);
+
+    g.appendChild(grp);
+  });
+})();
+
+/* ---------------- margin notes, each opening the process it describes ---------------- */
+(function(){
+  const g=$("notes");
+  const geo={
+    funnel:{dot:[838,322],path:"M 838 322 L 902 268 L 972 268",tx:980,ty:264,anchor:"start"},
+    bridge:{dot:[1256,344],path:"M 1256 344 L 1300 300 L 1352 300",tx:1360,ty:296,anchor:"start"},
+    ballast:{dot:[560,646],path:"M 560 646 L 512 700 L 420 700",tx:412,ty:696,anchor:"end"}
+  };
+  NOTES.forEach(nt=>{
+    const q=geo[nt.key];
+    g.appendChild(el("circle",{cx:q.dot[0],cy:q.dot[1],r:2,fill:"var(--line)"}));
+    g.appendChild(el("path",{d:q.path,fill:"none",stroke:"var(--line)","stroke-width":.8}));
+    const a=link(nt.pid.toLowerCase()+".html", nt.cap+" — "+nt.pid);
+    const w=300;
+    a.appendChild(el("rect",{class:"hit",x:q.anchor==="end"?q.tx-w:q.tx,y:q.ty-13,width:w,height:30}));
+    a.appendChild(txt({class:"cap",x:q.tx,y:q.ty,"font-size":9.5,fill:"var(--note)","text-anchor":q.anchor},nt.cap));
+    a.appendChild(txt({class:"mono",x:q.tx,y:q.ty+14,"font-size":9.5,fill:"var(--note)","text-anchor":q.anchor},
+      nt.note+"  ·  "+nt.pid));
+    g.appendChild(a);
+  });
+})();
+
+/* ---------------- footer statistics ---------------- */
+(function(){
+  const g=$("stats");
+  const x0=60,span=1480,step=span/STATS.length;
+  STATS.forEach((d,i)=>{
+    const cx=x0+step*(i+.5);
+    const gg=el("g",{class:"fade2"}); gg.style.animationDelay=(1.2+i*.07)+"s";
+    gg.appendChild(txt({class:"mono",x:cx,y:850,"font-size":32,fill:"var(--line)","text-anchor":"middle","font-weight":500}, d[0]));
+    gg.appendChild(txt({class:"cap",x:cx,y:872,"font-size":9,fill:"var(--note)","text-anchor":"middle"}, d[1]));
+    g.appendChild(gg);
+    if(i>0) g.appendChild(el("line",{x1:x0+step*i,y1:824,x2:x0+step*i,y2:876,stroke:"var(--line)","stroke-width":.7,opacity:.2}));
+  });
+})();
+
+/* ---------------- mobile deck index: the drawing is unreadable at phone width ---------------- */
+(function(){
+  const n=$("idx");
+  n.appendChild(Object.assign(document.createElement("h2"),{textContent:"Decks — tap to open"}));
+  decks.forEach(d=>{
+    const a=document.createElement("a"); a.href=d.href;
+    a.innerHTML='<span class="dk">DK '+d.n+'</span>'+
+                '<span class="nm">'+d.name+'</span>'+
+                '<span class="ct">'+d.nproc+' proc · '+d.steps+' steps</span>';
+    n.appendChild(a);
+  });
+  const go=document.createElement("a");
+  go.className="go"; go.href="overview.html"; go.textContent="View the drawing set";
+  n.appendChild(go);
+})();
+</script>
+</body></html>

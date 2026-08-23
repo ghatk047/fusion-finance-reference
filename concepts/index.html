@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Landing page concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter+Tight:wght@400;500;600&family=Playfair+Display:wght@400&display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0C1312;color:#E7EDEB;
+  font-family:"Inter Tight","IBM Plex Sans",-apple-system,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.switch{background:rgba(19,28,26,.88);border:1px solid #222F2C}
+.switch a{color:#94A29F}.switch a.cmp{background:#46AD98;color:#0C1312;opacity:1}
+.wrap{max-width:1220px;margin:0 auto;padding:70px 5vw 90px}
+h1{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:2.7rem;margin:0;
+  letter-spacing:-.02em}
+p.l{color:#94A29F;max-width:70ch;margin:16px 0 0;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:38px}
+.c{border:1px solid #222F2C;border-radius:12px;overflow:hidden;background:#131C1A;
+  display:flex;flex-direction:column}
+.c:hover{border-color:#46AD98}
+.sw{height:132px;position:relative;display:grid;place-items:center}
+.sw span{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.3em;text-transform:uppercase;
+  opacity:.55}
+.b{padding:19px 21px 22px;flex:1;display:flex;flex-direction:column}
+.k{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:#C9A257}
+.c h2{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:1.32rem;margin:8px 0 0}
+.c p{color:#94A29F;font-size:.85rem;line-height:1.65;margin:10px 0 0;flex:1}
+.lnks{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.lnks a{padding:9px 15px;border-radius:4px;text-decoration:none;font-weight:600;font-size:.8rem}
+.lnks .p{background:#46AD98;color:#0C1312}
+.lnks .s{border:1px solid #2C3A37;color:#C7D6D2}
+.note{margin-top:44px;padding:19px 21px;border:1px solid #2A2314;background:#1A160D;
+  border-left:3px solid #C9A257;border-radius:10px;font-size:.9rem;max-width:80ch;line-height:1.7}
+.note b{color:#C9A257}
+footer{margin-top:36px;color:#546E68;font-size:.74rem;line-height:1.7;max-width:88ch}
+footer b{color:#94A29F}
+
+/* Bottom-right, not top: every concept puts something at the top edge —
+   an instrument bar, a sheet header, a log entry block — and a top-right
+   switcher covered it on D, F and G. */
+.switch{position:fixed;bottom:14px;right:14px;z-index:80;box-shadow:0 4px 18px rgba(0,0,0,.28);display:flex;align-items:center;
+  gap:2px;padding:5px 6px;border-radius:999px;font-size:12px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.switch span{padding:0 7px 0 4px;letter-spacing:.1em;text-transform:uppercase;
+  font-size:9.5px;opacity:.6}
+.switch a{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;
+  text-decoration:none;font-weight:600;font-size:11.5px}
+.switch a.cmp{width:auto;padding:0 10px;font-weight:500;opacity:.7}
+.switch a:hover{opacity:1}
+@media(max-width:720px){.switch{bottom:8px;right:8px;padding:4px}
+  .switch span{display:none}.switch a{width:21px;height:21px;font-size:10.5px}
+  .switch a.cmp{display:none}}
+</style>
+</head><body>
+<nav class="switch" aria-label="Concept"><span>Concept</span><a href="a.html" class="">A</a><a href="b.html" class="">B</a><a href="c.html" class="">C</a><a href="d.html" class="">D</a><a href="e.html" class="">E</a><a href="f.html" class="">F</a><a href="g.html" class="">G</a><a href="index.html" class="cmp">compare</a></nav>
+
+<div class="wrap">
+  <h1>Seven front doors, one map</h1>
+  <p class="l">Every concept is a real page driven by the real numbers &mdash; 98 processes,
+  815 L4 steps, 26 design decisions &mdash; and every one links into the
+  live site. Concepts D through G also ship a matching <b>interior page</b>, so you can check that
+  the design survives past the hero instead of dropping into a plain table.</p>
+  <div class="grid">
+  <div class="c"><div class="sw" style="background:linear-gradient(150deg,#07161B,#0B2029)"><span><span>landing only</span></span></div>
+    <div class="b"><div class="k">Concept A</div><h2>Charted</h2>
+      <p>A navigational chart. Six stations plotted on a single course from guest folio to consolidated ledger. Survey precision rather than decoration.</p>
+      <div class="lnks"><a class="p" href="a.html">Landing</a></div>
+    </div></div>
+  <div class="c"><div class="sw" style="background:#F4F2ED"><span><span>landing only</span></span></div>
+    <div class="b"><div class="k">Concept B</div><h2>General Arrangement</h2>
+      <p>The finance function drawn as a ship's section. Each deck a pillar, each compartment a process group. Structure is the metaphor.</p>
+      <div class="lnks"><a class="p" href="b.html">Landing</a></div>
+    </div></div>
+  <div class="c"><div class="sw" style="background:linear-gradient(150deg,#070D0C,#12332C)"><span><span>landing only</span></span></div>
+    <div class="b"><div class="k">Concept C</div><h2>Voyage to Cash</h2>
+      <p>One sankey: six domains through capture, accounting and close into a reported result. Band widths are real process counts.</p>
+      <div class="lnks"><a class="p" href="c.html">Landing</a></div>
+    </div></div>
+  <div class="c"><div class="sw" style="background:radial-gradient(circle at 62% 40%,#123141,#04080B 68%)"><span><span style="color:#C9A257">carries through</span></span></div>
+    <div class="b"><div class="k">Concept D</div><h2>Bridge Watch</h2>
+      <p>A radar display at night. Ninety-eight contacts on the scope, an instrument bar pinned to every page. The most operational of the seven.</p>
+      <div class="lnks"><a class="p" href="d.html">Landing</a><a class="s" href="d-process.html">Interior page</a></div>
+    </div></div>
+  <div class="c"><div class="sw" style="background:linear-gradient(180deg,#12414F,#0A2735 48%,#04121A)"><span><span style="color:#C9A257">carries through</span></span></div>
+    <div class="b"><div class="k">Concept E</div><h2>Deep Sounding</h2>
+      <p>Detail as depth. Scroll from surface to seabed through L1 to L4, with a depth rail on every page showing how far down you are reading.</p>
+      <div class="lnks"><a class="p" href="e.html">Landing</a><a class="s" href="e-process.html">Interior page</a></div>
+    </div></div>
+  <div class="c"><div class="sw" style="background:#EFEAE0"><span><span style="color:#C9A257">carries through</span></span></div>
+    <div class="b"><div class="k">Concept F</div><h2>Voyage Log</h2>
+      <p>A ship's log book. The voyage is the accounting period, and each process is an entry on ruled paper with a red margin rule and a stamp.</p>
+      <div class="lnks"><a class="p" href="f.html">Landing</a><a class="s" href="f-process.html">Interior page</a></div>
+    </div></div>
+  <div class="c"><div class="sw" style="background:#F2EFE9"><span><span style="color:#C9A257">carries through</span></span></div>
+    <div class="b"><div class="k">Concept G</div><h2>Letterpress Ledger</h2>
+      <p>No illustration at all. Enormous figures, hairline rules, tabular numerals. The most restrained and the most expensive-looking.</p>
+      <div class="lnks"><a class="p" href="g.html">Landing</a><a class="s" href="g-process.html">Interior page</a></div>
+    </div></div></div>
+  <div class="note"><b>What to look for on the interior pages.</b> The hero is easy; the second
+  page is where most designs collapse. Each of D&ndash;G carries a device through every page &mdash;
+  an instrument bar, a depth rail, ruled log paper, a folio system &mdash; so the language holds
+  while the content stays legible. Open a landing page, then its interior, and judge the seam.</div>
+  <footer><p><b>Independent reference model.</b> Design concept. Prepared for proposal purposes. Not affiliated with, endorsed by, or derived from confidential information of Norwegian Cruise Line Holdings Ltd. All content is hypothesis from public information. Oracle and Fusion are marks of Oracle Corporation.</p></footer>
+</div>
+</body></html>

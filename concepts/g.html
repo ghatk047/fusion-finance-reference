@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Letterpress Ledger — NCLH Fusion Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,400;1,400&family=Sora:wght@400;600&display=swap">
+<style>
+:root{--paper:#F2EFE9;--ink:#16181A;--brass:#8E6F2E;--red:#A32C1E;
+  --dim:#6E6A63;--rule:#CFC9BC}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Sora","Helvetica Neue",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.switch{background:rgba(242,239,233,.9);border:1px solid var(--rule)}
+.switch a{color:var(--dim)}.switch a.on{background:var(--ink);color:var(--paper)}
+/* carry-through: folio number, hairline rules, tabular figures, same grid */
+.folio{position:fixed;left:26px;bottom:22px;z-index:40;
+  font:600 10px "IBM Plex Mono",monospace;letter-spacing:.24em;color:var(--dim);
+  writing-mode:vertical-rl;transform:rotate(180deg)}
+@media(max-width:900px){.folio{display:none}}
+.pg{max-width:1180px;margin:0 auto;padding:0 6vw}
+.top{display:flex;justify-content:space-between;padding:26px 0 0;
+  font:600 9.5px "IBM Plex Mono",monospace;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--dim);border-bottom:1px solid var(--ink);padding-bottom:12px}
+.hero{padding:52px 0 0;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start}
+h1{font-family:"Playfair Display",Georgia,serif;font-weight:400;
+  font-size:clamp(2.6rem,7vw,5.6rem);line-height:.94;letter-spacing:-.035em;margin:0}
+h1 em{font-style:italic;color:var(--brass)}
+.big{font-family:"Playfair Display",Georgia,serif;font-size:clamp(7rem,17vw,15rem);
+  line-height:.78;letter-spacing:-.05em;font-variant-numeric:tabular-nums;
+  color:var(--ink);text-align:right}
+.big small{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-top:14px}
+.lede{color:var(--dim);max-width:56ch;margin:26px 0 0;line-height:1.85;font-size:1.02rem}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 0}
+.cta a{padding:13px 22px;text-decoration:none;font-size:.86rem;font-weight:600}
+.cta .go{background:var(--ink);color:var(--paper)}
+.cta .alt{border:1px solid var(--ink);color:var(--ink)}
+.cols{margin-top:56px;border-top:2px solid var(--ink);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr))}
+.cols a,.cols div{padding:20px 20px 24px;border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);text-decoration:none;display:block}
+.cols a:last-child{border-right:0}
+.cols a:hover{background:#fff}
+.cols .k{font:600 9.5px "IBM Plex Mono",monospace;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--brass)}
+.cols .v{font-family:"Playfair Display",Georgia,serif;font-size:2.6rem;line-height:1;
+  margin-top:10px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.cols .n{font-size:.8rem;color:var(--dim);margin-top:8px;line-height:1.5}
+/* interior */
+.crumb{font:600 9.5px "IBM Plex Mono",monospace;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--dim);margin:34px 0 0}
+.crumb a{color:var(--brass);text-decoration:none}
+.ih{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;
+  border-bottom:2px solid var(--ink);padding:10px 0 18px}
+.ih h1{font-size:clamp(1.9rem,4.4vw,3.1rem)}
+.vd{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--paper);background:var(--brass);padding:7px 13px;white-space:nowrap}
+.two{display:grid;grid-template-columns:1.55fr 1fr;gap:44px;margin-top:34px}
+@media(max-width:860px){.two{grid-template-columns:1fr;gap:26px}
+  .hero{grid-template-columns:1fr}.big{text-align:left}}
+.two h2,.sec h2{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:1.3rem;
+  margin:0 0 9px}
+.two p,.sec p{margin:0 0 22px;line-height:1.85;color:var(--ink);font-size:.97rem}
+.aside{border-top:2px solid var(--ink);padding-top:14px}
+.aside .k{font:600 9.5px "IBM Plex Mono",monospace;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:8px}
+.aside p{font-size:.9rem;color:var(--dim);line-height:1.75}
+.sec{margin-top:34px}
+.fig{background:#fff;border:1px solid var(--rule);padding:12px;overflow-x:auto}
+.fig img{width:100%;min-width:640px;display:block}
+.tw{margin-top:14px;overflow-x:auto;border-top:2px solid var(--ink)}
+table{border-collapse:collapse;width:100%;min-width:840px;font-size:.84rem}
+th{text-align:left;padding:10px;font:600 9.5px "IBM Plex Mono",monospace;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--ink)}
+td{padding:12px 10px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.6}
+td.s{font:600 11px "IBM Plex Mono",monospace;color:var(--brass);white-space:nowrap;
+  font-variant-numeric:tabular-nums}
+td.nm{font-weight:600}
+td.d{text-align:center;font:600 11px "IBM Plex Mono",monospace;color:var(--red)}
+td.pp{color:var(--dim);font-size:.79rem}
+footer{border-top:2px solid var(--ink);margin-top:44px;padding:18px 0 70px;color:var(--dim);
+  font-size:.74rem;line-height:1.7;max-width:88ch}
+footer b{color:var(--ink)}
+
+/* Bottom-right, not top: every concept puts something at the top edge —
+   an instrument bar, a sheet header, a log entry block — and a top-right
+   switcher covered it on D, F and G. */
+.switch{position:fixed;bottom:14px;right:14px;z-index:80;box-shadow:0 4px 18px rgba(0,0,0,.28);display:flex;align-items:center;
+  gap:2px;padding:5px 6px;border-radius:999px;font-size:12px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.switch span{padding:0 7px 0 4px;letter-spacing:.1em;text-transform:uppercase;
+  font-size:9.5px;opacity:.6}
+.switch a{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;
+  text-decoration:none;font-weight:600;font-size:11.5px}
+.switch a.cmp{width:auto;padding:0 10px;font-weight:500;opacity:.7}
+.switch a:hover{opacity:1}
+@media(max-width:720px){.switch{bottom:8px;right:8px;padding:4px}
+  .switch span{display:none}.switch a{width:21px;height:21px;font-size:10.5px}
+  .switch a.cmp{display:none}}
+</style>
+</head><body>
+<nav class="switch" aria-label="Concept"><span>Concept</span><a href="a.html" class="">A</a><a href="b.html" class="">B</a><a href="c.html" class="">C</a><a href="d.html" class="">D</a><a href="e.html" class="">E</a><a href="f.html" class="">F</a><a href="g.html" class="on">G</a><a href="index.html" class="cmp">compare</a></nav>
+<div class="folio">NCLH &middot; Fusion Finance &middot; Folio I</div>
+<div class="pg">
+  <div class="top"><span>Oracle Fusion Cloud &middot; Finance</span>
+    <span>Hypothesis &mdash; pending validation</span></div>
+  <div class="hero">
+    <div>
+      <h1>Ninety-eight<br>processes.<br><em>Nothing</em><br>left vague.</h1>
+      <p class="lede">A complete finance process model for Norwegian Cruise Line Holdings, taken
+      to step level and positioned against delivered Oracle Fusion &mdash; so discovery produces a
+      validated delta rather than a blank page.</p>
+      <div class="cta">
+        <a class="go" href="../index.html">Open the ledger</a>
+        <a class="alt" href="g-process.html">See a process page &rarr;</a>
+      </div>
+    </div>
+    <div class="big">815<small>L4 steps specified</small></div>
+  </div>
+  <div class="cols"><a href="../fin.html"><div class="k">FIN</div><div class="v">34</div><div class="n">Core Financials</div></a><a href="../prc.html"><div class="k">PRC</div><div class="v">16</div><div class="n">Procurement &amp; Supply</div></a><a href="../ppm.html"><div class="k">PPM</div><div class="v">12</div><div class="n">Project &amp; Capital</div></a><a href="../epm.html"><div class="k">EPM</div><div class="v">14</div><div class="n">Planning, Close &amp; Reporting</div></a><a href="../grc.html"><div class="k">GRC</div><div class="v">8</div><div class="n">Risk, Controls &amp; Compliance</div></a><a href="../xtn.html"><div class="k">XTN</div><div class="v">14</div><div class="n">Integration, Data &amp; Sustaining</div></a>
+    <div><div class="k">Beyond standard</div>
+      <div class="v">20</div>
+      <div class="n">Extension or integration</div></div>
+    <div><div class="k">Decisions</div><div class="v">26</div>
+      <div class="n">Design decisions registered</div></div>
+  </div>
+  <footer><p><b>Independent reference model.</b> Design concept. Prepared for proposal purposes. Not affiliated with, endorsed by, or derived from confidential information of Norwegian Cruise Line Holdings Ltd. All content is hypothesis from public information. Oracle and Fusion are marks of Oracle Corporation.</p></footer>
+</div>
+</body></html>

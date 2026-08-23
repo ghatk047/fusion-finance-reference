@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>FIN-AP-03 — Voyage Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Spectral:wght@400;500&display=swap">
+<style>
+:root{--paper:#EFEAE0;--ruled:#D6CFC0;--ink:#14181C;--dim:#6A6357;
+  --red:#B4442E;--teal:#20655C}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);
+  background:var(--paper);
+  font-family:"Spectral","Iowan Old Style",Georgia,serif;
+  -webkit-font-smoothing:antialiased}
+/* carry-through: every page is a page of the log book */
+.ruled{background-image:repeating-linear-gradient(180deg,transparent,transparent 31px,
+  var(--ruled) 31px,var(--ruled) 32px);background-position:0 6px}
+.switch{background:rgba(239,234,224,.9);border:1px solid var(--ruled)}
+.switch a{color:var(--dim)}.switch a.on{background:var(--ink);color:var(--paper)}
+.sheet{max-width:1200px;margin:0 auto;padding:0 5vw;position:relative}
+.sheet::before{content:"";position:fixed;left:calc(50% - 600px + 5vw - 26px);top:0;bottom:0;
+  width:2px;background:var(--red);opacity:.35}
+@media(max-width:1300px){.sheet::before{left:calc(5vw - 14px)}}
+@media(max-width:720px){.sheet::before{display:none}}
+
+.entry{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;
+  padding:44px 0 12px;border-bottom:2px solid var(--ink);flex-wrap:wrap}
+.entry .no{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--red)}
+.entry h1{font-weight:400;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.05;margin:6px 0 0;
+  letter-spacing:-.015em}
+.entry .stamp{border:2px solid var(--red);color:var(--red);padding:7px 13px;transform:rotate(-3deg);
+  font:600 10px "IBM Plex Mono",monospace;letter-spacing:.18em;text-transform:uppercase;
+  text-align:center;line-height:1.5}
+.lede{color:var(--dim);max-width:58ch;margin:22px 0 0;line-height:2;font-size:1.02rem}
+.cta{display:flex;gap:11px;flex-wrap:wrap;margin:26px 0 30px}
+.cta a{padding:12px 21px;text-decoration:none;font:600 .86rem "IBM Plex Mono",monospace;
+  letter-spacing:.06em}
+.cta .go{background:var(--ink);color:var(--paper)}
+.cta .alt{border:1px solid var(--ink);color:var(--ink)}
+.vg{width:100%;height:auto;display:block;margin:8px 0 6px}
+.vg .base{stroke:var(--ink);stroke-width:1.6}
+.vg .tick{stroke:var(--ink);stroke-width:1.4}
+.vg .stem{stroke:var(--red);stroke-width:1}
+.vg .pin{fill:var(--red)}
+.vg .dn{fill:var(--ink);text-anchor:middle;font:600 10px "IBM Plex Mono",monospace;letter-spacing:.14em}
+.vg .dd{fill:var(--dim);text-anchor:middle;font:400 11px "Spectral",serif}
+.vg .evl{fill:var(--red);text-anchor:middle;font:600 10px "IBM Plex Mono",monospace;letter-spacing:.1em}
+.vg .cap{fill:var(--dim);font:600 10px "IBM Plex Mono",monospace;letter-spacing:.22em}
+.logrows{border-top:1px solid var(--ink);margin-top:10px}
+.logrows a{display:grid;grid-template-columns:74px 1fr auto;gap:16px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--ruled);text-decoration:none;color:var(--ink)}
+.logrows a:hover{background:rgba(180,68,46,.05)}
+.logrows .t{font:600 11px "IBM Plex Mono",monospace;color:var(--red);letter-spacing:.1em}
+.logrows .x{font-size:1.02rem}
+.logrows .m{font:400 11px "IBM Plex Mono",monospace;color:var(--dim);letter-spacing:.06em}
+/* interior */
+.crumb{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--dim);margin:0 0 4px}
+.crumb a{color:var(--red);text-decoration:none}
+.body{padding:22px 0 60px}
+.body h2{font-weight:400;font-size:1.25rem;margin:30px 0 8px;
+  border-bottom:1px solid var(--ruled);padding-bottom:6px}
+.body p{line-height:2;margin:0;max-width:74ch}
+.marg{float:right;width:210px;margin:6px 0 14px 26px;border-left:2px solid var(--red);
+  padding-left:14px;font:400 .82rem/1.75 "IBM Plex Mono",monospace;color:var(--dim)}
+.marg b{display:block;color:var(--red);font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;margin-bottom:5px}
+.fig{background:#fff;border:1px solid var(--ruled);padding:12px;margin-top:16px;overflow-x:auto}
+.fig img{width:100%;min-width:640px;display:block}
+.tw{margin-top:16px;overflow-x:auto;border-top:1px solid var(--ink)}
+table{border-collapse:collapse;width:100%;min-width:840px;font-size:.84rem}
+th{text-align:left;padding:9px 10px;font:600 9.5px "IBM Plex Mono",monospace;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--ink)}
+td{padding:11px 10px;border-bottom:1px solid var(--ruled);vertical-align:top;line-height:1.6}
+td.s{font:600 11px "IBM Plex Mono",monospace;color:var(--red);white-space:nowrap}
+td.nm{font-weight:500}
+td.d{text-align:center;font:600 11px "IBM Plex Mono",monospace;color:var(--teal)}
+td.pp{color:var(--dim);font-size:.79rem}
+footer{border-top:2px solid var(--ink);padding:18px 0 60px;color:var(--dim);font-size:.74rem;
+  line-height:1.7;max-width:88ch}
+footer b{color:var(--ink)}
+
+/* Bottom-right, not top: every concept puts something at the top edge —
+   an instrument bar, a sheet header, a log entry block — and a top-right
+   switcher covered it on D, F and G. */
+.switch{position:fixed;bottom:14px;right:14px;z-index:80;box-shadow:0 4px 18px rgba(0,0,0,.28);display:flex;align-items:center;
+  gap:2px;padding:5px 6px;border-radius:999px;font-size:12px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.switch span{padding:0 7px 0 4px;letter-spacing:.1em;text-transform:uppercase;
+  font-size:9.5px;opacity:.6}
+.switch a{display:grid;place-items:center;width:24px;height:24px;border-radius:999px;
+  text-decoration:none;font-weight:600;font-size:11.5px}
+.switch a.cmp{width:auto;padding:0 10px;font-weight:500;opacity:.7}
+.switch a:hover{opacity:1}
+@media(max-width:720px){.switch{bottom:8px;right:8px;padding:4px}
+  .switch span{display:none}.switch a{width:21px;height:21px;font-size:10.5px}
+  .switch a.cmp{display:none}}
+</style>
+</head><body>
+<nav class="switch" aria-label="Concept"><span>Concept</span><a href="a.html" class="">A</a><a href="b.html" class="">B</a><a href="c.html" class="">C</a><a href="d.html" class="">D</a><a href="e.html" class="">E</a><a href="f.html" class="on">F</a><a href="g.html" class="">G</a><a href="index.html" class="cmp">compare</a></nav>
+<div class="sheet ruled">
+  <div class="entry">
+    <div>
+      <div class="crumb"><a href="f.html">&larr; Voyage Log</a> &middot; Core Financials
+        &middot; Payables &amp; Expenses</div>
+      <div class="no">Entry FIN-AP-03 &middot; 10 steps</div>
+      <h1>Port Agent Disbursement Account Settlement</h1>
+    </div>
+    <div class="stamp">Extension<br>FIN-AP-03</div>
+  </div>
+  <div class="body">
+    <div class="marg"><b>Open question for NCL</b>How many port calls occur annually, how are disbursement accounts validated and approved today, and is there a standard DA format required of agents?</div>
+    <h2>Description</h2>
+    <p>Settles port agent disbursement accounts. At every port call a local agent advances funds on the line&#x27;s behalf for pilotage, towage, berth dues, mooring, garbage removal, immigration and other services, then submits a disbursement account with supporting third-party invoices for reimbursement. This is a shipping-specific process with no equivalent in standard corporate procure-to-pay, and it carries significant cash and control exposure.</p>
+    <h2>Fit / gap position</h2>
+    <p>Not a delivered Fusion pattern. Disbursement accounts are multi-line third-party pass-through claims against a cash advance, requiring an advance clearing mechanism and line-level validation. Expect a configured prepayment model plus an extension for DA structure and variance analysis.</p>
+    <h2>Process flow</h2>
+    <div class="fig"><img src="../img/fin-ap-03.png" alt="Process flow"></div>
+    <h2>Log of steps</h2>
+    <div class="tw "><table><thead><tr><th>Step</th><th>Activity</th><th>Role</th><th>System</th><th>Dec</th><th>Pain point</th></tr></thead><tbody><tr><td class="s">1.1</td><td class="nm">Receive and Review Agent Proforma DA</td><td>Port Operations Manager</td><td>Fusion Payables</td><td class="d">Y</td><td class="pp">Proformas are estimates and agents habitually pad them, so the baseline for later variance analysis is soft</td></tr><tr><td class="s">1.2</td><td class="nm">Remit Cash Advance to Agent</td><td>Treasury Manager</td><td>Fusion Cash Management</td><td class="d"></td><td class="pp">Late advances risk services being withheld at the port, which can delay sailing</td></tr><tr><td class="s">1.3</td><td class="nm">Record Advance as Open Prepayment</td><td>Accounts Payable Clerk</td><td>Fusion Payables</td><td class="d"></td><td class="pp">Advances recorded without a port call reference cannot be matched to the eventual DA</td></tr><tr><td class="s">2.1</td><td class="nm">Receive Final DA with Supporting Invoices</td><td>Port Operations Manager</td><td>Fusion Payables</td><td class="d"></td><td class="pp">Agents in some regions routinely submit final DAs months late, and there is limited leverage to compel them</td></tr><tr><td class="s">2.2</td><td class="nm">Validate DA Lines Against Tariff and Proforma</td><td>Port Operations Manager</td><td>Fusion Data Intelligence</td><td class="d">Y</td><td class="pp">Third-party invoices arrive in local languages and currencies, and validating a pilotage charge in an unfamiliar jurisdiction is genuinely difficult</td></tr><tr><td class="s">2.3</td><td class="nm">Challenge Unsupported or Excess Charges</td><td>Port Operations Manager</td><td>Fusion Payables</td><td class="d">Y</td><td class="pp">Charges appearing on the final DA that were absent from the proforma are the most common dispute and the hardest to disprove</td></tr><tr><td class="s">3.1</td><td class="nm">Approve Final DA for Settlement</td><td>Fleet Supply Manager</td><td>Fusion Payables</td><td class="d">Y</td><td class="pp">Approvers rarely have port-specific knowledge to judge whether a charge is reasonable</td></tr><tr><td class="s">3.2</td><td class="nm">Clear Advance and Settle Balance</td><td>Accounts Payable Clerk</td><td>Fusion Payables</td><td class="d"></td><td class="pp">Where the DA is lower than the advance the agent owes a refund, which is far harder to collect than paying a balance</td></tr><tr><td class="s">3.3</td><td class="nm">Reconcile Agent Advance Balances</td><td>Corporate Controller</td><td>Oracle ARCS</td><td class="d">Y</td><td class="pp">Accumulated open advances across many agents represent real credit exposure that is rarely reported as such</td></tr><tr><td class="s">3.4</td><td class="nm">Analyse Port Cost Variance and Agent Performance</td><td>Port Operations Manager</td><td>Fusion Data Intelligence</td><td class="d"></td><td class="pp">Without benchmarking across calls at the same port, systematic overcharging by an agent is invisible</td></tr></tbody></table></div>
+  </div>
+  <footer><p><b>Independent reference model.</b> Design concept. Prepared for proposal purposes. Not affiliated with, endorsed by, or derived from confidential information of Norwegian Cruise Line Holdings Ltd. All content is hypothesis from public information. Oracle and Fusion are marks of Oracle Corporation.</p></footer>
+</div>
+</body></html>
